@@ -1,13 +1,16 @@
 [project]
-name = "isaacase"
+name = "isaac-ase"
 version = "0.1.0"
 description = "IsaacASE: A repro of ASE using IsaacLab and IsaacSim"
 readme = "README.md"
 requires-python = "~=3.11"
 dependencies = [
-  "torch==2.7.0",
-  "torchvision==0.22.0",
-  'isaacsim[all,extscache]==5.0.0'
+    "torch==2.7.0",
+    "torchvision==0.22.0",
+    'isaacsim[all,extscache]==5.0.0',
+    "isaaclab[isaacsim,all]==2.2.0",
+    "colorlog",
+    "typer"
 ]
 
 [[tool.uv.index]]
@@ -24,3 +27,9 @@ explicit = true
 torch = [{ index = "pytorch-cu128" }]
 torchvision = [{ index = "pytorch-cu128" }]
 isaacsim = { index = "nvidia" }
+
+[tool.uv]
+package = true
+
+[project.scripts]
+isaac-ase = "isaac_ase.cli:app"
